@@ -22,11 +22,20 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+   
+    // Tambahkan 'pasar_id', 'no_hp', dan 'role' ke dalam array $fillable yang sudah ada:
+protected $fillable = [
+    'pasar_id',
+    'name',
+    'email',
+    'no_hp',
+    'password',
+    'role',
+    
+];
+
+public function pasar()
+{
+    return $this->belongsTo(Pasar::class);
+}
 }

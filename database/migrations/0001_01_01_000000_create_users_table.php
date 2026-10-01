@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('no_hp')->nullable();
+            $table->enum('role', ['super_admin', 'admin_pasar', 'kolektor', 'pedagang'])->default('pedagang');
+            $table->foreignId('pasar_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
