@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Super Admin Dinas',
             'email' => 'admin@simpasar.go.id',
             'no_hp' => '081234567890',
-            'password' => bcrypt('password'),
+            'password' => 'test123',
             'role' => 'super_admin',
         ]);
 
