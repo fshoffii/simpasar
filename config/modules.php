@@ -3,6 +3,7 @@
 use Nwidart\Modules\Activators\FileActivator;
 use Nwidart\Modules\Providers\ConsoleServiceProvider;
 
+
 return [
 
     /*

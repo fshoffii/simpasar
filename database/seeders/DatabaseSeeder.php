@@ -5,8 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,12 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-        $roles = ["admin","kolektor","pedagang"];
-        foreach($roles as $role){
+        // Buat roles jika belum ada
+        $roles = ["admin", "kolektor", "pedagang"];
+        foreach ($roles as $role) {
             Role::firstOrCreate(['name' => $role]);
         }
 
+        // Buat user admin
         User::create([
             'name' => 'admin',
             'email' => 'admin@simpasar.com',
@@ -30,6 +31,8 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ])->assignRole($roles[0]);
+
+        // Buat user pedagang
         User::create([
             'name' => 'pedagang',
             'email' => 'pedagang@simpasar.com',
@@ -37,6 +40,8 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ])->assignRole($roles[2]);
+
+        // Buat user kolektor
         User::create([
             'name' => 'kolektor',
             'email' => 'kolektor@simpasar.com',
